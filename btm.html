@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Form Biodata Mahasiswa</title>
+        <script type="text/javascript" src="jquery-ui-1.13.0/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="btm.css">
+    </head>
+    <body>
+        <div class="kotak">
+            <h1>
+                Form Biodata Mahasiswa
+            </h1>
+            <form class="form">
+                <input type="text" id="nim" placeholder="Masukkan Nim.." name="nim" autocomplete="off">
+                <input type="text" id="nama" placeholder="Masukkan Nama.." name="nama" autocomplete="off">
+                <input type="text" id="tanggal" placeholder="Masukkan Tanggal Lahir.." name="tanggal" autocomplete="off">
+                <input type="text" id="alamat" placeholder="Masukkan Alamat.." name="alamat" autocomplete="off">
+                <select name="prodi" id="prodi">
+                <option value="si">Sistem Informasi-S1</option>
+                <option value="ti">Teknik Informatika-S1</option>
+                </select>
+                </form>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $("#nim").keyup(function(){
+                        $("#nama").slideDown();
+                    });
+                    $("#nama").keyup(function(){
+                        $("#tanggal").fadeIn();
+                    });
+                    $("#tanggal").keyup(function(){
+                        $("#alamat").slideDown();
+                    });
+                    $("#alamat").keyup(function(){
+                        $("#prodi").slideDown();
+                    });
+                    $("#prodi").on('change', function(){
+                        const selectedprodi = $('#prodi').val();
+                        $('#selected').text(selectedprodi);
+                    });
+                });
+        </script>
+    </body>
+</html>
